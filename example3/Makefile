@@ -19,7 +19,7 @@ example3_2: example3_2.o
 
 example3.o: example3.c
 
-example3_1o: example3_1.c
+example3_1.o: example3_1.c
 
 example3_2.o: example3_2.c
 
