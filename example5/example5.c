@@ -6,8 +6,8 @@ int subtract(int a, int b);
 int main(void)
 {
 	int a, b, x, d;
-	a = 8;
-	b = 9;
+	a = 9;
+	b = 2;
 
 	asm("mrs %[result], apsr" : [result] "=r" (x) : );
 
