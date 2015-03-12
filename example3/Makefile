@@ -4,16 +4,26 @@ LDFLAGS = -fno-stack-protector
 
 objects	= example3.o
 
-default: example3
+default: example3 example3_1 example3_2
 
 .PHONY: default clean
 
 example3: $(objects)
 	$(CC) -o $@ $^
 
+example3_1: example3_1.o
+	$(CC) -o example3_1 example3_1.o
+
+example3_2: example3_2.o
+	$(CC) -o example3_2 example3_2.o
+
 example3.o: example3.c
 
-%.o: %.c
+example3_1o: example3_1.c
+
+example3_2.o: example3_2.c
+
+%.o: %.c 
 	$(CC) -c $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:
@@ -21,3 +31,5 @@ clean:
 
 qemu: example3
 	qemu-arm -L /usr/arm-linux-gnueabihf ./example3
+	qemu-arm -L /usr/arm-linux-gnueabihf ./example3_1
+	qemu-arm -L /usr/arm-linux-gnueabihf ./example3_2
